@@ -1,35 +1,29 @@
+#Depth First Search
+visited = []           #список посещенных вершин
+matrix = [[0,1,1,0,0], #матрица смежности, задающая граф
+          [1,0,0,1,0],
+          [1,0,0,0,0],
+          [0,1,0,0,1],
+          [0,0,0,1,0]] 
 """
-    Depth First Search
-    start - НАЧАЛЬНАЯ ВЕРШИНА (кортеж): start = {'1': ('2','5')}
-    peaks - СЛОВАРЬ ВЕРШИН (словарь кортежей): peaks = {'1':('2','5'), '2':('3','4'), '3':(), '4':(), '5':()}.
-    peak - ЭЛЕМЕНТ СЛОВАРЯ - ВЕРШИНА (кортеж)
-    done - СПИСОК ПОСЕЩЕННЫХ ВЕРШИН (список)
-    point - ЭЛЕМЕНТЫ PEAK, вершины соединенные с peak
-
     Данный граф выглядит так:
 
                     1
                    / \
-                  2   5
-                 / \ 
-                3   4
-
-    peaks = {'1':('2','5'), '2':('3','4'), '3':(), '4':(), '5':()}
-    
+                  2   3
+                 / 
+                4   
+               /
+              5 
 """
 
+def DFS(top):
+    visited.append(top)
+    print(top)         #вывод порядка обхода вершин 
+    for i in range(1, len(matrix) + 1):
+        if (i not in visited) and (matrix[top - 1][i - 1] == 1):
+            DFS(i)
 
-def DFS(start, peaks, done):
-    for peak, point in start.items():
-        
-        if peak not in done:
-            yield peak, point
-            done.append(peak)
-            for i in point:
-                
-                new_point={ i : peaks[i]}
-                
-                for point in DFS(new_point, peaks, done):
-                    
-                    if point not in done:
-                        yield done
+
+            
+DFS(4)                 #ввод номер стратовой вершины
