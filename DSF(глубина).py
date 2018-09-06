@@ -23,7 +23,3 @@ def DFS(top):
     for i in range(1, len(matrix) + 1):
         if (i not in visited) and (matrix[top - 1][i - 1] == 1):
             DFS(i)
-
-
-            
-DFS(4)                 #ввод номер стратовой вершины
