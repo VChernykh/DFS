@@ -1,7 +1,7 @@
 #Depth First Search
 
-y, x = [int(elem) for elem in input().split(' ')]              #чтение размеров матрицы смежности
-matrix = [[int(j) for j in input().split()] for i in range(y)] #чтение матрицы смежности
+n = int(input())              #чтение размера матрицы смежности
+matrix = [[int(j) for j in input().split()] for i in range(n)] #чтение матрицы смежности
 visited = []           #список посещенных вершин
 
 """
